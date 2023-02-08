@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping List</title>
+  <style>
+    #shopping-list {
+      list-style-type: none;
+      padding: 0;
+      background-color:grey;
+    }
+    #shopping-list li {
+      background-color: #f2f2f2;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shopping List</h1>
+  <form>
+    <input type="text" id="item" placeholder="Enter items">
+    <button id="add-button">Add</button>
+  </form>
+  <ul id="shopping-list"></ul>
+
+  <script>
+    const shoppingList = document.querySelector("#shopping-list");
+    const addButton = document.querySelector("#add-button");
+    const itemInput = document.querySelector("#item");
+
+    addButton.addEventListener("click", function(event) {
+      event.preventDefault();
+      const item = itemInput.value;
+      if (!item) {
+        return;
+      }
+
+      const li = document.createElement("li");
+      li.textContent = item;
+      shoppingList.appendChild(li);
+      itemInput.value = "";
+    });
+  </script>
+</body>
+</html>
